@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <title>Discovery</title>
+</head>
+
+    <style>
+
+        .main.container{
+            padding-top: 50px;
+
+        }
+
+    </style>
+
+<body>
+
+    <div class="main container" id="app">
+
+        <a :href="link"> {{message}} </a>  <!-- v-bind !-->
+<br/>
+
+
+        <!-- FORM -->
+
+        <input type="text" v-model="message">   <!-- à la base :value, mais v-model est un raccourci, car le champs va ête lié à la variable {{message}} !-->
+
+        <input type="checkbox" v-model="success">
+
+
+
+        <!-- Bouton alert-->
+
+        <div class="alert" role="alert" :style="style()">  <!-- reprend le code de Bootsrap pour jouer sur la couleur lorsqu'on décoche la checkbox -->
+
+           <!-- :class="success ? 'alert-success' : 'alert-danger'" -->
+
+
+            <!-- croix pour fermer -->
+
+            <button type="button" class="close" aria-label="Close" @click="close">   <!-- Bouton boostrap SUCCESS + @click pour fermer le bouton quand on clique-->
+                <span aria-hidden="true">&times;</span>
+            </button>
+            <p> test  </p>
+
+
+        </div>
+
+
+
+        <!-- <div class="alert alert-success" role="alert" v-if="success" // Bouton boostrap SUCCESS + condition v-if="sucess" (AVANT MODIF de :class)
+
+              <div class="alert alert-danger" role="alert" v-else>         //  Bouton boostrap ERROR + condition v-else à l'inverse du v-if //
+                <p> Erreur :( </p>
+
+             </div> -->
+
+
+
+       <!-- tableau des personnes -->
+
+        <ul>
+            <Li v-for="person in persons"> {{person }}</Li>   <!-- pour chaque personnes dans persons dupliqué // créer une variable qui s'appeler person // {{affiche le noms de chaque personne }}!-->
+        </ul>
+
+    </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <script src="discovery.js"></script>
+
+</body>
+
+
+</html>
